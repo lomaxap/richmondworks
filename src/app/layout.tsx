@@ -32,7 +32,7 @@ export default function RootLayout({
               </div>
             </Link>
           </header>
-          <div className="">
+          <div className="grow">
             {children}
           </div>
         </div>

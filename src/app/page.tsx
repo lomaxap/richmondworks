@@ -8,7 +8,7 @@ export default async function Home() {
   if (!content?.root) return;
 
   return (
-    <main className="max-w-2xl mx-auto">
+    <main className="max-w-2xl lg:max-w-3xl mx-auto lg:mx-0">
       {content.root.data.map((page: Page, i: number) => (
         <ArticleBlock key={i} page={page} />
       ))}

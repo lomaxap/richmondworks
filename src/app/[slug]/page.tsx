@@ -23,7 +23,7 @@ export default async function Page(props: Props) {
 
   return (
     <>
-      <main className="max-w-2xl lg:max-w-3xl mx-auto flex flex-col gap-y-2">
+      <main className="max-w-2xl lg:max-w-3xl mx-auto lg:mx-0 flex flex-col gap-y-2">
         <div className="relative h-64 lg:h-96 w-full overflow-hidden mb-8 clipped-image">
           <Image className="object-cover" fill alt="" src={page.cover[page.cover.type].url} />
         </div>
