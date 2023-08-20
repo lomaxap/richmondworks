@@ -1,4 +1,4 @@
-import { getPageBySlug } from "@/api/getPage";
+import { getContent, getPageBySlug } from "@/api/getPage";
 import { DateTag, PageTitle } from "@/components/Block";
 import Blocks from "@/components/Blocks";
 import { Block, Page } from "@/types";
@@ -10,9 +10,17 @@ type Props = {
   }
 }
 
+export async function generateStaticParams() {
+  const content = await getContent();
+
+  return content.root.data.map((page: Page) => ({
+    slug: page.properties.slug.rich_text[0].plain_text,
+  }));
+}
+
 export default async function Page(props: Props) {
   const page: Page = await getPageBySlug("root", props.params.slug)
-  if (!page) return;
+
   return (
     <>
       <main className="max-w-2xl lg:max-w-3xl mx-auto flex flex-col gap-y-2">
